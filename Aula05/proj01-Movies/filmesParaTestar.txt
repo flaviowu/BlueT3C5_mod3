@@ -1,0 +1,9 @@
+{
+    "nome": "Aya e a Bruxa",
+    "imgURL": "https://i0.wp.com/studioghibli.com.br/wp-content/uploads/2020/11/Poster-Aya-e-a-Bruxa-Earwig-and-the-Witch.jpg"
+}
+
+{
+    "nome": "Túmulo dos Vagalumes",
+    "imgURL": "https://i1.wp.com/studioghibli.com.br/wp-content/uploads/2020/04/t%C3%BAmulo-dos-vagalumes-dvd-vers%C3%A1til.jpg?w=830&ssl=1"
+}
