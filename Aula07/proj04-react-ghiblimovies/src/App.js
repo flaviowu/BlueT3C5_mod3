@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+export default function App() {
+  const [ nomeFilme, setNomeFilme] = useState('')
+  const [ imgUrlFilme, setImgUrlFilme] = useState('')
+  const [ idFilme, setIdFilme ] = useState(5)
+  const [ ghibliMovies, setGhibliMovies ] = useState([
 
-    this.state = {
-      ghibliMovies: [
         {
           id: 1,
           nome: "O Castelo Animado",
@@ -42,24 +42,61 @@ export default class App extends React.Component {
             "https://i2.wp.com/studioghibli.com.br/wp-content/uploads/2020/04/O-Servi%C3%A7o-de-Entregas-da-Kiki-vers%C3%A1til.jpg",
         }
       ]
-    };
-  };
-  
-  render() {
-    const { ghibliMovies } = this.state;
+    )
     
+    let handleSubmit = (e) => {
+      e.preventDefault()
+      setIdFilme(idFilme+1)
+      const novoFilme = {
+        id: idFilme,
+        nome: nomeFilme,
+        imgURL: imgUrlFilme
+      }
+
+      console.log('-=-=-=-')
+      setGhibliMovies(novoFilme)
+      console.log(ghibliMovies)
+      console.log('-=-=-=-')
+
+    }
+
+    let listarFilmes = () => {
+      console.log('-=-=-=-')
+      console.log(ghibliMovies)
+      console.log(nomeFilme)
+      console.log(imgUrlFilme)
+      console.log('-=-=-=-')
+    }
+
     return (
-      <div className="container">
-        <h1>Filmografia Ghibli | Longa Metragem (Parcial)</h1>
-        <ul>
-          {ghibliMovies.map( f => (
-            <li key={f.id}>
-              <h3>{f.nome}</h3>
-              <img src={f.imgURL} alt={f.nome} />
-            </li>
-          ))}
-        </ul>
-      </div>
+      <>
+        <div className="filmografia">
+          <h1>Filmografia Ghibli | Longa Metragens</h1>
+          <ul>
+            {ghibliMovies.map( f => (
+              <li key={f.id}>
+                <h3>{f.nome}</h3>
+                <img src={f.imgURL} alt={f.nome} />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="adm">
+              <h2>Administração</h2>
+              <form name="formulario" id="formulario" onSubmit={handleSubmit}>
+                <label>Título o Filme:</label>
+                <input type="text" name="nome" value={nomeFilme} onChange={(e) => {
+                  setNomeFilme(e.target.value)
+                }}></input>
+                <label>URL da Imagem:</label>
+                <input type="text" name="url-img" value={imgUrlFilme} onChange={(e) =>
+                  setImgUrlFilme(e.target.value)
+                }></input>
+                <button type="submit" id="cad-filme">Cadastrar</button>
+                <button id="cad-filme" onClick={listarFilmes}>Listar</button>
+              </form>
+        </div>
+      </>
     )
   }
-}
+

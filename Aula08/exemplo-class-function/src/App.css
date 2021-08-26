@@ -1,0 +1,9 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-classes {
+  margin: 2rem;
+  align-items: center;
+}
