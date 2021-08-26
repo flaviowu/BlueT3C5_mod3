@@ -4,7 +4,7 @@ import './App.css';
 export default function App() {
   const [ nomeFilme, setNomeFilme] = useState('')
   const [ imgUrlFilme, setImgUrlFilme] = useState('')
-  const [ idFilme, setIdFilme ] = useState(5)
+
   const [ ghibliMovies, setGhibliMovies ] = useState([
 
         {
@@ -46,27 +46,29 @@ export default function App() {
     
     let handleSubmit = (e) => {
       e.preventDefault()
-      setIdFilme(idFilme+1)
+      let IdFilme = ghibliMovies.length + 1
       const novoFilme = {
-        id: idFilme,
+        id: IdFilme,
         nome: nomeFilme,
         imgURL: imgUrlFilme
-      }
+      }      
 
-      console.log('-=-=-=-')
-      setGhibliMovies(novoFilme)
+      // console.log('-=-=-=-=-=-=-')
+      // setGhibliMovies(ghibliMovies.push(novoFilme))
+      console.log(novoFilme)
       console.log(ghibliMovies)
-      console.log('-=-=-=-')
+      setGhibliMovies([...ghibliMovies, novoFilme])
+
 
     }
 
-    let listarFilmes = () => {
-      console.log('-=-=-=-')
-      console.log(ghibliMovies)
-      console.log(nomeFilme)
-      console.log(imgUrlFilme)
-      console.log('-=-=-=-')
-    }
+    // let listarFilmes = () => {
+    //   console.log('-=-=-=-')
+    //   console.log(ghibliMovies)
+    //   console.log(nomeFilme)
+    //   console.log(imgUrlFilme)
+    //   console.log('-=-=-=-')
+    // }
 
     return (
       <>
@@ -84,16 +86,15 @@ export default function App() {
         <div className="adm">
               <h2>Administração</h2>
               <form name="formulario" id="formulario" onSubmit={handleSubmit}>
-                <label>Título o Filme:</label>
+                <label>Título o Filme:{nomeFilme}</label>
                 <input type="text" name="nome" value={nomeFilme} onChange={(e) => {
                   setNomeFilme(e.target.value)
                 }}></input>
-                <label>URL da Imagem:</label>
+                <label>URL da Imagem:{imgUrlFilme}</label>
                 <input type="text" name="url-img" value={imgUrlFilme} onChange={(e) =>
                   setImgUrlFilme(e.target.value)
                 }></input>
                 <button type="submit" id="cad-filme">Cadastrar</button>
-                <button id="cad-filme" onClick={listarFilmes}>Listar</button>
               </form>
         </div>
       </>

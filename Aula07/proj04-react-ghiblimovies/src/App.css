@@ -19,6 +19,11 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  transition: transform .3s ease-in-out;
+}
+
+ul :hover {
+  transform: scale(1.1);
 }
 
 ul li {
@@ -28,6 +33,8 @@ ul li {
   background-color: purple;
   border-radius: 6px;
 }
+
+
 
 ul li img {
   width: 10rem;
