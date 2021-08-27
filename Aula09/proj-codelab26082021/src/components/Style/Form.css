@@ -1,0 +1,15 @@
+.form-adm {
+  background-color: cadetblue;
+  width: 25vw;
+  padding: 0.3rem 0.2rem 0.3rem 0.2rem;
+  border-radius: 10px;
+}
+
+.form-adm form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-adm form input {
+  margin: 0.5rem 0 0.3rem 0;
+}
