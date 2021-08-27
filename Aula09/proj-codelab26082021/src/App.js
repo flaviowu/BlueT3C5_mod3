@@ -8,13 +8,18 @@ function App() {
   const listaJogos = [...lista]
   
   return (
-    <div className="App">
-      <div>
-        {listaJogos.map((jogo) => <Card titulo= {jogo.titulo} ano={jogo.ano} imgUrl={jogo.imgUrl}/>)}
-      </div>
-      <div>
+    <div className="container">
+        <ul>
+        {listaJogos.map( (jogo => {
+          return (
+              <li key={jogo.id}>
+                <Card imgUrl={jogo.imgUrl} titulo={jogo.titulo} ano={jogo.ano} />
+              </li>
+          )
+        })
+        )}
+        </ul>
         <Form/>
-      </div>
     </div>
   );
 }
