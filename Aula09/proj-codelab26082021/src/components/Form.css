@@ -1,0 +1,4 @@
+.form-adm form{
+    display: flex;
+    flex-direction: column;
+}
