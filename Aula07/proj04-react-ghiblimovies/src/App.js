@@ -7,57 +7,57 @@ export default function App() {
   const [imgUrlFilme, setImgUrlFilme] = useState("");
 
   const [ghibliMovies, setGhibliMovies] = useState([...ghibliMoviesList]);
-  const [editando, setEditando] = useState(false)
-  const [idEdit, setIdEdit] = useState(null)
+
+  const [editando, setEditando] = useState(false);
+  const [idEdit, setIdEdit] = useState(null);
 
   useEffect(() => {
     if (idEdit !== null && editando) {
-      const movie = ghibliMovies.filter((f) => f.id === idEdit)
-      setNomeFilme(movie[0].nome)
-      setImgUrlFilme(movie[0].imgURL)
+      const movie = ghibliMovies.filter((f) => f.id === idEdit);
+      setNomeFilme(movie[0].nome);
+      setImgUrlFilme(movie[0].imgURL);
     }
-  }, [idEdit])
-  
+  }, [idEdit]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    let idFilme = null
-    if (editando === true){
-      idFilme = idEdit
-      const movie = ghibliMovies.filter((f) => f.id === idFilme)[0]
-      const index = ghibliMovies.indexOf(movie)
-      
+    let idFilme = null;
+    if (editando === true) {
+      idFilme = idEdit;
+      const movie = ghibliMovies.filter((f) => f.id === idFilme)[0];
+      const index = ghibliMovies.indexOf(movie);
+
       setGhibliMovies(() => {
-        const novaLista = [...ghibliMovies]
+        const novaLista = [...ghibliMovies];
         novaLista[index] = {
           id: idFilme,
           nome: nomeFilme,
           imgURL: imgUrlFilme,
-        }
-        return novaLista
-      })
-
-    } else if(editando === false) {
+        };
+        return novaLista;
+      });
+    } else if (editando === false) {
       idFilme = ghibliMovies[ghibliMovies.length - 1].id + 1;
-      setGhibliMovies([...ghibliMovies,
+      setGhibliMovies([
+        ...ghibliMovies,
         {
           id: idFilme,
           nome: nomeFilme,
           imgURL: imgUrlFilme,
-        }
-      ])
-
+        },
+      ]);
     }
 
-    setEditando(false)
-    setIdEdit(null)
+    setEditando(false);
+    setIdEdit(null);
     setNomeFilme("");
     setImgUrlFilme("");
   };
 
   const handleDelete = (id) => {
-    setGhibliMovies(ghibliMovies.filter((f) => f.id !== id))
-  }
-  
+    setGhibliMovies(ghibliMovies.filter((f) => f.id !== id));
+  };
+
   return (
     <>
       <div className="filmografia">
@@ -67,15 +67,16 @@ export default function App() {
             <li key={f.id}>
               <h3>{f.nome}</h3>
               <img src={f.imgURL} alt={f.nome} />
-              <button type="button" onClick={() => {
-                  setEditando(true)
-                  setIdEdit(f.id)
+              <button
+                type="button"
+                onClick={() => {
+                  setEditando(true);
+                  setIdEdit(f.id);
                 }}
               >
                 Editar
               </button>
-              <button type="button" onClick={() => handleDelete(f.id)}
-                > 
+              <button type="button" onClick={() => handleDelete(f.id)}>
                 Excluir
               </button>
             </li>
@@ -83,11 +84,9 @@ export default function App() {
         </ul>
       </div>
       <div className="adm">
-        
         {/* Form */}
         <h2>Administração</h2>
         <form name="formulario" id="formulario" onSubmit={handleSubmit}>
-          
           <label>Título o Filme: {nomeFilme}</label>
           <input
             type="text"
@@ -109,7 +108,6 @@ export default function App() {
           <button type="submit" id="cad-filme">
             Salvar
           </button>
-
         </form>
       </div>
     </>
