@@ -21,23 +21,33 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     let idFilme = null
-    if (editando){
+    if (editando === true){
       idFilme = idEdit
-      handleDelete(idFilme)
-
+      const movie = ghibliMovies.filter((f) => f.id === idFilme)[0]
+      const index = ghibliMovies.indexOf(movie)
+      
+      setGhibliMovies(() => {
+        const novaLista = [...ghibliMovies]
+        novaLista[index] = {
+          id: idFilme,
+          nome: nomeFilme,
+          imgURL: imgUrlFilme,
+        }
+        return novaLista
+      })
 
     } else if(editando === false) {
       idFilme = ghibliMovies[ghibliMovies.length - 1].id + 1;
+      setGhibliMovies([...ghibliMovies,
+        {
+          id: idFilme,
+          nome: nomeFilme,
+          imgURL: imgUrlFilme,
+        }
+      ])
+
     }
 
-    setGhibliMovies([...ghibliMovies,
-      {
-        id: idFilme,
-        nome: nomeFilme,
-        imgURL: imgUrlFilme,
-      }
-    ])
-    
     setEditando(false)
     setIdEdit(null)
     setNomeFilme("");
