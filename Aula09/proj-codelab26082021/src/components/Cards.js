@@ -1,5 +1,6 @@
 import React from "react";
 import "./Style/Cards.css";
+import IFrameYouTube from "./youtubeFrame";
 
 export default function Card(props) {
   return (
@@ -8,7 +9,7 @@ export default function Card(props) {
       <div className="card-body">
         <h5 className="card-title">{props.titulo}</h5>
         <p className="card-text">{props.ano}</p>
-        {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+        <IFrameYouTube youtubeId={props.youtubeId}/>
       </div>
     </div>
   );

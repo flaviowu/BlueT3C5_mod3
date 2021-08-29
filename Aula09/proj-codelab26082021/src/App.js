@@ -8,12 +8,12 @@ function App() {
   const listaJogos = [...lista]
   
   return (
-    <div className="container">
+    <div className="container-sm">
         <ul>
         {listaJogos.map( (jogo => {
           return (
               <li key={jogo.id}>
-                <Card imgUrl={jogo.imgUrl} titulo={jogo.titulo} ano={jogo.ano} />
+                <Card imgUrl={jogo.imgUrl} titulo={jogo.titulo} ano={jogo.ano} youtubeId={jogo.youtubeId}/>
               </li>
           )
         })
