@@ -1,29 +1,10 @@
 body {
+  background-color: #463E4A;
+  display: flex;
+  justify-content: center;
   margin: 0;
   font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  background: repeating-linear-gradient(
-    45deg,
-    #8860bc,
-    #8860bc 10px,
-    #954698 10px,
-    #954698 20px
-  );
+  
 }
 
-ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: stretch;
-  margin: 0;
-  padding: 0;
-}
-
-ul li {
-  list-style: none;
-}
-
-ul li .card{
-  align-items: stretch;
-}

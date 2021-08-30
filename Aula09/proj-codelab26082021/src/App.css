@@ -1,11 +1,59 @@
-.App {
+.container-sm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
+  text-align: center;
+  margin: 2rem 0 2rem 0;
+}
+
+img {
+  width: 50vw;
+  align-self: center;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  align-items: stretch;
+  margin: 2rem 0 2rem 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li .card{
+  align-items: stretch;
+  color:white;
+}
+.form-adm {
+  background-color: #6F2F94;
+  color:white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+}
+
+.form-adm form{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-adm form input{
   text-align: center;
 }
 
-#list-items {
-  display: flex;
+.form-adm form button{
+  background-color: #C18AE0;
+  border-style: none;
+  transition: 300ms ease-in-out;
+  border-radius: 0 0 30px 30px;
+}
+
+.form-adm form button:hover{
+  transform: scale(1.05);
 }

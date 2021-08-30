@@ -1,14 +1,24 @@
 .card {
-  background-color: #3d2366;
-  color: white;
-  border-radius: 10px;
-  padding: 0.3rem 0.5rem 1rem 0.5rem;
+  background: #361747;
+  border-radius: 30px;
+  padding: 1.2rem .5rem .5rem 0.5rem;
   margin: 1rem 0.5rem 1rem 0.5rem;
 }
 
 .card img {
   align-self: center;
-  height: 40vh;
-  width: 40vh;
-  padding: 0.5rem;
+  border-radius: 30px;
+  height: 15rem;
+  width: 15rem;
+}
+
+.card .card-btn button{
+  border: none;
+  margin: 0 .5rem 0 .5rem;
+  border-radius: 30px;
+  transition: 300ms ease-in-out;
+}
+
+.card .card-btn button:hover{
+  transform: scale(1.05);
 }
