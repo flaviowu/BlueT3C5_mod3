@@ -1,4 +1,4 @@
-let lista = [
+const lista = [
         {
             id: 1,
             titulo: "Mega Man II",

@@ -1,5 +1,5 @@
 .container-sm {
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -46,14 +46,16 @@ ul li .card-btn button:hover{
 }
 
 .form-adm {
-  background-color: #6F2F94;
-  color:white;
   display: flex;
+  background-color: #6F2F94;
+
+  color:white;
   flex-direction: column;
   border-radius: 30px;
 }
 
 .form-adm form{
+  text-align: center;
   display: flex;
   flex-direction: column;
 }
@@ -65,10 +67,10 @@ ul li .card-btn button:hover{
 .form-adm form button{
   background-color: #C18AE0;
   border-style: none;
-  transition: 300ms ease-in-out;
   border-radius: 0 0 30px 30px;
+  transition: 300ms ease-in-out;
 }
 
 .form-adm form button:hover{
-  transform: scale(1.05);
+  background-color: #9b63bb;
 }

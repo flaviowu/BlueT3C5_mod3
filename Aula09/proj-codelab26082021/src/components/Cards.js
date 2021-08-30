@@ -5,7 +5,7 @@ import IFrameYouTube from "./youtubeFrame";
 export default function Card(props) {
   return (
     <div className="card">
-      <img src={props.imgUrl} className="card-img-top" alt="..." />
+      <img src={props.imgUrl} className="card-img-top" alt={props.titulo} />
       <div className="card-body">
         <div className="card-info">
           <h5 className="card-title">{props.titulo}</h5>
