@@ -12,10 +12,10 @@ export default function Card(props) {
           <p className="card-text">Lançamento: {props.ano}</p>
         </div>
         <IFrameYouTube youtubeId={props.youtubeId}/>
-        <div className="card-btn">
+        {/* <div className="card-btn">
           <button type="button">Editar</button>
-          <button type="button">Deletar</button>
-        </div>
+          <button type="button" onClick={() => handleDelete(props.id)}>Deletar</button>
+        </div> */}
       </div>
     </div>
   );

@@ -2,27 +2,39 @@ import './App.css';
 import { useState } from 'react';
 import Card from './components/Cards'
 import { lista } from './components/jogosdb'
+import { getGameById } from './modules/util.js'
 
 function App() {
   const [nomeJogo, setNomeJogo] = useState("");
   const [anoJogo, setAnoJogo] = useState("");
   const [imgUrlJogo, setImgUrlJogo] = useState("");
   const [gameplay, setGameplayJogo] = useState("");
+  const [listaJogos, setListaJogos] = useState([...lista])
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    return
+    let novoId = listaJogos[listaJogos.length -1].id +1
+    const novoJogo = {
+      id: novoId,
+      titulo: nomeJogo,
+      ano: anoJogo,
+      imgUrl: imgUrlJogo,
+      youtubeId: gameplay.split('=')[1]
+    }
+
+    setListaJogos([...listaJogos, novoJogo])
   };
 
   function handleEdit(){
     return
   }
 
-  function handleDelete(){
+  function handleDelete(id){
+    setListaJogos(listaJogos.filter((jogo)=> jogo.id !== id))
+
     return
   }
 
-  const listaJogos = [...lista]
 
   return (
     <div className="container-sm">
@@ -39,6 +51,10 @@ function App() {
                   handleEdit={handleEdit}
                   handleDelete={handleDelete}
                   />
+                <div className="card-btn">
+                  <button type="button">Editar</button>
+                  <button type="button" onClick={() => handleDelete(jogo.id)}>Deletar</button>
+                </div>
               </li>
           )
         })
@@ -75,7 +91,11 @@ function App() {
             <button type="submit" onClick={handleSubmit}>
               Salvar Jogo
             </button>
+            <button type="button">
+              Modo Edição
+            </button>
           </form>
+          {/* <button type="button" onclick={0}>Inserir dados de teste 1</button> */}
         </div>
     </div>
   );

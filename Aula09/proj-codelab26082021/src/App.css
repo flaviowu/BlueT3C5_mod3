@@ -23,6 +23,7 @@ ul {
 }
 
 ul li {
+  margin: .5rem;
   list-style: none;
 }
 
@@ -30,6 +31,20 @@ ul li .card{
   align-items: stretch;
   color:white;
 }
+
+ul li .card-btn button{
+  background-color: #C18AE0;
+  border: none;
+  margin: 0 .5rem 0 .5rem;
+  width: 5rem;
+  border-radius: 5px;
+  transition: 300ms ease-in-out;
+}
+
+ul li .card-btn button:hover{
+  transform: scale(1.05);
+}
+
 .form-adm {
   background-color: #6F2F94;
   color:white;
