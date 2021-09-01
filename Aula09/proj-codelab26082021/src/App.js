@@ -12,30 +12,27 @@ function App() {
   const [edicao, setEdicao] = useState(false);
   const [idEdicao, setIdEdicao] = useState(null)
   const [listaJogos, setListaJogos] = useState([...lista]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let novoId = listaJogos[listaJogos.length - 1].id + 1;
-    const novoJogo = {
-      id: novoId,
-      titulo: nomeJogo,
-      ano: anoJogo,
-      imgUrl: imgUrlJogo,
-      youtubeId: gameplay,
-    };
-
-    setListaJogos([...listaJogos, novoJogo]);
-  };
-
+  
   useEffect(() => {
     if (idEdicao !== null && edicao) {
-      const game = listaJogos.filter((f) => f.id === idEdicao);
-      setNomeJogo(game[0].titulo);
-      setAnoJogo(game[0].ano);
-      setImgUrlJogo(game[0].imgUrl)
-      setGameplayJogo(game[0].youtubeId)
+      const game = listaJogos.filter((f) => f.id === idEdicao)[0];
+      setNomeJogo(game.titulo);
+      setAnoJogo(game.ano);
+      setImgUrlJogo(game.imgUrl)
+      setGameplayJogo(game.youtubeId)
     }
   }, [idEdicao]);
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // if (edicao){
+    //     const index = getIndexById(idEdicao, listaJogos)
+
+  };
+
+
+
+
 
   function handleDelete(id) {
     setListaJogos(listaJogos.filter((jogo) => jogo.id !== id));

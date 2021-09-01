@@ -26,7 +26,14 @@ let lista = [
             ano: "1994",
             imgUrl: "https://www.mobygames.com/images/covers/l/67245-mega-man-v-game-boy-front-cover.jpg",
             youtubeId: "https://www.youtube.com/watch?v=a_Fy16mEsOk"
+        },
+        {
+            id: 5,
+            titulo: "Mega Man Xtreme",
+            ano: "2000",
+            imgUrl: "https://www.mobygames.com/images/covers/l/14407-mega-man-xtreme-game-boy-color-front-cover.jpg",
+            youtubeId: "https://www.youtube.com/watch?v=adHAuvRkhPU"
         }
 ]
 
-export { lista }
+export  { lista } 
