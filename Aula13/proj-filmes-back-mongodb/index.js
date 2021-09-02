@@ -1,15 +1,14 @@
 const express = require("express");
-const app = express();
-app.use(express.json());
 const Conn = require("./models/conn/conn");
-Conn("localhost", 27017, "musicas");
+
+const app = express();
+Conn("localhost", 27017, "filmes");
+
+app.use(express.json());
 
 const port = 3000;
 
-const musica = require("./routers/musicas.routes");
-app.use("/musicas", musica);
-
-const filme = require("./routers/filmes.routes");
+const filme = require("./routes/filmes.route");
 app.use("/filmes", filme);
 
 app.listen(port, () => {
