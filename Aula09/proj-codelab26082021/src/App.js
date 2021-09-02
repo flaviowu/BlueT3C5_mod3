@@ -25,8 +25,8 @@ function App() {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (edicao){
-    //     const index = getIndexById(idEdicao, listaJogos)
+    if (edicao){
+        // const index = getIndexById(idEdicao, listaJogos)
 
   };
 
