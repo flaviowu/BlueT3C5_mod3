@@ -5,13 +5,13 @@ import { lista } from "./components/jogosdb";
 import { getIndexById } from "./modules/util.js";
 
 export default function App() {
-  const [nomeJogo, setNomeJogo] = useState("");
-  const [anoJogo, setAnoJogo] = useState("");
-  const [imgUrlJogo, setImgUrlJogo] = useState("");
-  const [gameplay, setGameplayJogo] = useState("");
-  const [edicao, setEdicao] = useState(false);
-  const [idEdicao, setIdEdicao] = useState(null);
-  const [listaJogos, setListaJogos] = useState([...lista]);
+  const [nomeJogo, setNomeJogo] = useState("");                 // input nome do jogo
+  const [anoJogo, setAnoJogo] = useState("");                  // input ano de lançamento do jogo
+  const [imgUrlJogo, setImgUrlJogo] = useState("");           // input url do jogo
+  const [gameplay, setGameplayJogo] = useState("");           // input url do video de gameplay do jogo
+  const [edicao, setEdicao] = useState(false);                 // estado modo edição de jogo
+  const [idEdicao, setIdEdicao] = useState(null);             // id do jogo a ser editado
+  const [listaJogos, setListaJogos] = useState([...lista]);    // lista de jogos
 
   useEffect(() => {
     if (idEdicao !== null && edicao) {
@@ -25,36 +25,40 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let listaTemp = listaJogos;
-    if (edicao) {
-      const index = getIndexById(idEdicao, listaTemp);
-      listaTemp[index] = {
-        id: listaTemp[index].id,
-        titulo: nomeJogo,
-        ano: anoJogo,
-        imgUrl: imgUrlJogo,
-        youtubeId: gameplay,
-      };
-      
-    } else if (!edicao) {
-      const novoId = listaTemp[listaTemp.length - 1].id + 1;
-      listaTemp = [
-        ...listaTemp,
-        {
-          id: novoId,
+
+    if (nomeJogo !== "" && anoJogo !== "" && imgUrlJogo !== "" && gameplay !== "") {
+      let listaTemp = listaJogos;
+      if (edicao) {
+        const index = getIndexById(idEdicao, listaTemp);
+        console.log(`id= ${listaTemp[index].id} e o index é ${index}`)
+        listaTemp[index] = {
+          id: listaTemp[index].id,
           titulo: nomeJogo,
           ano: anoJogo,
           imgUrl: imgUrlJogo,
           youtubeId: gameplay,
-        },
-      ];
+        };
+      } else if (!edicao) {
+        const novoId = listaTemp[listaTemp.length - 1].id + 1;
+        listaTemp = [
+          ...listaTemp,
+          {
+            id: novoId,
+            titulo: nomeJogo,
+            ano: anoJogo,
+            imgUrl: imgUrlJogo,
+            youtubeId: gameplay,
+          },
+        ];
+      }
+      setListaJogos([...listaTemp]); 
+      handleClean();
     }
-    setListaJogos([...listaTemp]);
-    handleClean();
+   
   };
 
   function handleClean() {
-    setIdEdicao(null)
+    setIdEdicao(null);
     setNomeJogo("");
     setAnoJogo("");
     setImgUrlJogo("");
@@ -136,9 +140,10 @@ export default function App() {
           <button type="submit" onClick={handleSubmit}>
             Salvar Jogo
           </button>
-          <button type="button" onClick={handleClean}>Limpar</button>
+          <button type="button" onClick={handleClean}>
+            Limpar
+          </button>
         </form>
-        
       </div>
     </>
   );
