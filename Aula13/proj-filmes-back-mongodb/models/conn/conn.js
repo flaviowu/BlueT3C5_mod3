@@ -16,7 +16,7 @@ function Conn(url, porta, banco) {
 
 module.exports = Conn;
 
-// remoteDB = "mongodb+srv://ming:<pass>@cluster0.6xyk4.mongodb.net/filme?retryWrites=true&w=majority"
+// remoteDB = ""
 // function RemoteConn() {
 //   mongoose.connect(remoteDB, {
 //     useNewUrlParser: true,
