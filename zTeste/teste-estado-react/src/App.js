@@ -1,16 +1,19 @@
 import './App.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Formulario from './components/form';
-import Frame from './components/frame'
+import Title from './components/titleH2'
 
 function App() {
   const [ listaPalavras, setListaPalavras] = useState(["amarelo", "cachorro", "filme", "musica"])
-  const [ novaPalavra, setNovaPalavra ] = useState('Olá React')
+
+  const onWordSubmit = (word) => {
+    setListaPalavras([...listaPalavras, word])
+  }
 
   return (
     <div className="App">
-      {listaPalavras.map((item) => <Frame palavra = {item} />)}
-      <Formulario novaPalavra={novaPalavra} setNovaPalavra={setNovaPalavra}/>
+      {listaPalavras.map((item) => <Title itemLista = {item} />)}
+      <Formulario onSubmit={onWordSubmit} />
       
     </div>
   );

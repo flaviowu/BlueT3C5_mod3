@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 
 export default function Formulario(props) {
-    const [ novaPalavra, setNovaPalavra] = useState('')
 
-    function handleSubmit(e) {
+    const [ palavra, setPalavra ] = useState("")
+
+    function handleFormSubmit(e) {
         e.preventDefault()
-        props.setNovaPalavra(novaPalavra)
+        props.onSubmit(palavra)
+        setPalavra("")
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="digite algo" defaultValue={novaPalavra} onChange={ (e) => setNovaPalavra(e.target.value)}/>
+        <form onSubmit={handleFormSubmit}>
+            <input type="text" placeholder="digite algo" defaultValue={palavra} onChange={ (e) => setPalavra(e.target.value)}/>
             <button type="submit">TESTAR</button>
         </form>
     )
