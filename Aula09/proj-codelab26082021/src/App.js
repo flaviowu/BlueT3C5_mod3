@@ -124,14 +124,14 @@ export default function App() {
             placeholder="Digite o ano do Jogo"
           />
           <input
-            type="text"
+            type="url"
             name="img-url"
             onChange={(e) => setImgUrlJogo(e.target.value)}
             value={imgUrlJogo}
             placeholder="Digite a URL da imagem"
           />
           <input
-            type="text"
+            type="url"
             name="youtubeId"
             onChange={(e) => setGameplayJogo(e.target.value)}
             value={gameplay}
