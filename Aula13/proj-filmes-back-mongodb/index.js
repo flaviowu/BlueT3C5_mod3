@@ -8,7 +8,7 @@ app.use(express.json());
 
 const port = 3000;
 
-const filme = require("./routes/filmes.route");
+const filme = require("./routers/filmes.routes");
 app.use("/filmes", filme);
 
 app.listen(port, () => {

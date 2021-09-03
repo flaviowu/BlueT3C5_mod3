@@ -1,16 +1,26 @@
 const express = require("express");
 const router = express.Router();
 const Filme = require("../models/filme.js");
+const validate = require("../controllers/filmes.controller");
 
 router.post("/add", async (req, res) => {
-  await Filme.create(req.body)
-    .then(() => {
-      res.status(200).send("Filme adicionado com Sucesso!");
-    })
-    .catch((err) => {
-      res.status(400).send("Algo deu errado. Tente Novamente");
-      console.error(err);
-    });
+  const filme = req.body;
+  if (validate.model(filme)) {
+    await Filme.create(req.body)
+      .then(() => {
+        res.status(200).send("Filme adicionado com Sucesso!");
+      })
+      .catch((err) => {
+        res.status(400).send("Algo deu errado. Tente Novamente");
+        console.error(err);
+      });
+  } else {
+    res
+      .status(400)
+      .send(
+        "Há algo errado com o seu filme. Verifique os dados e tente novamente"
+      );
+  }
 });
 
 router.get("/", async (req, res) => {
@@ -47,7 +57,7 @@ router.put("/update/:nome", async (req, res) => {
 });
 
 router.delete("/delete/:nome", async (req, res) => {
-    await Filme.deleteOne({ nome: req.params.nome })
+  await Filme.deleteOne({ nome: req.params.nome })
     .then(() => {
       res.status(200).send(`Filme Deletado com Sucesso`);
     })
