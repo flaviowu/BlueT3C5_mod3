@@ -9,12 +9,19 @@ function App() {
   const onWordSubmit = (word) => {
     setListaPalavras([...listaPalavras, word])
   }
+  const keyGen = (item, lista) => {
+    return lista.indexOf(item)
+  }
 
   return (
     <div className="App">
-      {listaPalavras.map((item) => <Title itemLista = {item} />)}
+      <ul> 
+      {listaPalavras.map((item) => 
+          <li key={keyGen(item, listaPalavras)}>
+            <Title itemLista = {item} /> 
+          </li>
+        )}</ul>
       <Formulario onSubmit={onWordSubmit} />
-      
     </div>
   );
 }
