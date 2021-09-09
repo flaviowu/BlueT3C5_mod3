@@ -3,11 +3,4 @@
 
 .content {
     @include container;
-    &-title {
-        color: $color-primary;
-    }
-}
-h1 {
-    color: white;
-    background-color: black;
 }

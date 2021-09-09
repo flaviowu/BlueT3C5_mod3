@@ -1,14 +1,13 @@
 import React from "react";
-import "./Home.scss"
+import { MovieList } from "../../components/structure/MovieList/MovieList";
+import "./Home.scss";
 
 export const Home = () => {
   return (
     <section className="container">
-      <h1 className="content-title">
-        Página Inicial | Listagem de Filmes
-      </h1>
+      <h1 className="content-title">Página Inicial | Listagem de Filmes</h1>
       <div className="content-list">
-        Conteúdo de Listagem
+        <MovieList />
       </div>
     </section>
   );
