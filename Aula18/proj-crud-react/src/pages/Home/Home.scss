@@ -1,0 +1,13 @@
+@import '../../style/colors';
+@import '../../style/style';
+
+.content {
+    @include container;
+    &-title {
+
+    }
+}
+h1 {
+    color: white;
+    background-color: black;
+}
