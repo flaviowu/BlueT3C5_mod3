@@ -7,14 +7,26 @@
   justify-items: center;
   justify-content: space-between;
   background-color: $color-secondary;
-  color: $color-primary;
 	border-radius: 1.6rem;
-	margin: 1.3rem 0 1.3rem 0;
+	margin: 1.3rem .8rem 1.3rem .8rem;
+  max-width: 18rem;
+  max-height: 36rem;
 
   -webkit-box-shadow: 12px 12px 24px 10px rgba(0, 0, 0, 0.47);
   box-shadow: 12px 12px 24px 10px rgba(0, 0, 0, 0.47);
 
 	img {
 		border-radius: 1.6rem 1.6rem 0rem 0;
+    width: 100%;
 	}
+
+  h3 {
+    margin: 3px;
+    font-weight: 600;
+  }
+  p {
+    margin: 3px;
+    font-weight: 300;
+    max-width: 118rem;
+  }
 }

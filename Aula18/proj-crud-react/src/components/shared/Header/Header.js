@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import "./Header.scss";
 
 export const Header = () => {
@@ -6,14 +7,14 @@ export const Header = () => {
     <header className="header">
       <ul className="header-list">
         <li className="header-list-item">
-          <a className="header-list-item-link" href="/">
+          <Link to="/">
             Home
-          </a>
+          </Link>
         </li>
         <li className="header-list-item">
-          <a className="header-list-item-link" href="/addMovie">
+          <Link to="/addMovie">
             Adicionar
-          </a>
+          </Link>
         </li>
       </ul>
     </header>

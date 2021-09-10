@@ -1,12 +1,16 @@
 import React from 'react'
 import "./MovieCard.scss"
 
-export const MovieCard = () => {
+export const MovieCard = (props) => {
+    const movie = props.movie
+    
     return (
         <div className="card">
-            <img src="http://picsum.photos/320/240" alt="Foto"/>
-            <h3>Filme Sem Nome</h3>
-            <p>Descrição</p>
+            <img src={movie.urlPoster} alt="Foto"/>
+            <h3>{movie.nome}</h3>
+            <p>Sinopse</p>
+            <p>{movie.sinopse}</p>
+            <p>Duração: {movie.duracao} min</p>
         </div>
     )
 }

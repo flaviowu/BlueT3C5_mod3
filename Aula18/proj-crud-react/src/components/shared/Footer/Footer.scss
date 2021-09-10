@@ -1,8 +1,10 @@
-@import '../../../style/_colors';
-@import '../../../style/style';
+@import "../../../style/_colors";
+@import "../../../style/style";
 
 .footer {
-    height: 50px;
-    display: flex;
-
+  @include container;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  display: flex;
 }
