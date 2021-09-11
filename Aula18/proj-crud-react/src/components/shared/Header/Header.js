@@ -7,12 +7,12 @@ export const Header = () => {
     <header className="header">
       <ul className="header-list">
         <li className="header-list-item">
-          <Link to="/">
+          <Link to="/" style={{ color: "black", textDecoration: "none" }}>
             Home
           </Link>
         </li>
         <li className="header-list-item">
-          <Link to="/addMovie">
+          <Link to="/addMovie" style={{ color: "black", textDecoration: "none" }}>
             Adicionar
           </Link>
         </li>
